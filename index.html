@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Angular Practice Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -14,13 +14,13 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">WebSiteName</a>
+        <a class="navbar-brand" href="#">Angular Hub</a>
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Angular Topics <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Page 1-1</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="#">Page 1-2</a></li>
             <li><a href="#">Page 1-3</a></li>
           </ul>
@@ -46,12 +46,32 @@
     </div>
     <div class="row" ng-controller="DivRepeatController">
       <div class="col-md-12">
-        <h1>This example shows use of "orderBy" filer</h2>
+        <h1>This example shows use of "orderBy" filter</h2>
         <ul>
           <li ng-repeat="x in cityNames | orderBy:'country'">
             {{ x.name + ', ' + x.country }}
           </li>
         </ul>
+      </div>
+    </div>
+
+    <div class="row" ng-controller="DivRepeatController">
+      <div class="col-md-12">
+        <h1>This example shows use of "orderBy" filter on click of column</h2>
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="blue-grey lighten-4">
+            <tr>
+              <th ng-click="orderByMe('name')">Name</th>
+              <th ng-click="orderByMe('country')">Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in cityNames | orderBy:myOrderBy">
+              <td>{{x.name}}</td>
+              <td>{{x.country}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

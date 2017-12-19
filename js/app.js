@@ -50,4 +50,8 @@ myApp.controller('DivRepeatController', function DivRepeatController($scope) {
             country: 'Norway'
         }
     ];
+
+    $scope.orderByMe = function (x) {
+        $scope.myOrderBy = x;
+    }
 });
